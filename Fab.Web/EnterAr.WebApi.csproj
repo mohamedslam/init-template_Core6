@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\net6.0\Fab.Web.xml</DocumentationFile>
+      <NoWarn>1701;1702;1591</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\net6.0\Fab.Web.xml</DocumentationFile>
+      <NoWarn>1701;1702;1591</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Policies\Requirements\Users\**" />
+      <Content Remove="Policies\Requirements\Users\**" />
+      <EmbeddedResource Remove="Policies\Requirements\Users\**" />
+      <None Remove="Policies\Requirements\Users\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AltPoint.Filters" Version="0.2.1" />
+        <PackageReference Include="Autofac" Version="6.4.0" />
+        <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+        <PackageReference Include="FluentValidation" Version="11.1.0" />
+        <PackageReference Include="MediatR" Version="10.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.6" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
+        <PackageReference Include="RazorLight" Version="2.0.0" />
+        <PackageReference Include="Sentry.AspNetCore" Version="3.15.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+        <PackageReference Include="Serilog.Expressions" Version="3.4.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Fab.ApplicationServices.Implementation\EnterAr.ApplicationServices.Implementation.csproj" />
+      <ProjectReference Include="..\Fab.Infrastructure.DataAccess.PostgreSQL\EnterAr,Infrastructure.DataAccess.PostgreSQL.csproj" />
+      <ProjectReference Include="..\Fab.Infrastructure.Implementation\EnterAr.Infrastructure.Implementation.csproj" />
+      <ProjectReference Include="..\Fab.UseCases\EnterAr.UseCases.csproj" />
+      <ProjectReference Include="..\Fab.Utils\EnterAr.Utils.csproj" />
+    </ItemGroup>
+
+</Project>

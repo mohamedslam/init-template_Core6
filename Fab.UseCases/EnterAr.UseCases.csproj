@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\net6.0\Fab.UseCases.xml</DocumentationFile>
+      <NoWarn>1701;1702;1591</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\net6.0\Fab.UseCases.xml</DocumentationFile>
+      <NoWarn>1701;1702;1591</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Fab.ApplicationServices.Interfaces\EnterAr.ApplicationServices.Interfaces.csproj" />
+      <ProjectReference Include="..\Fab.Entities\EnterAr.Entities.csproj" />
+      <ProjectReference Include="..\Fab.Infrastructure.DataAccess.Interfaces\EnterAr.Infrastructure.DataAccess.Interfaces.csproj" />
+      <ProjectReference Include="..\Fab.Utils\EnterAr.Utils.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AltPoint.Filters" Version="0.2.1" />
+      <PackageReference Include="Autofac" Version="6.4.0" />
+      <PackageReference Include="AutoMapper" Version="11.0.1" />
+      <PackageReference Include="AutoMapper.Collection" Version="8.0.0" />
+      <PackageReference Include="FastExpressionCompiler" Version="3.3.2" />
+      <PackageReference Include="FluentValidation" Version="11.1.0" />
+      <PackageReference Include="MediatR" Version="10.0.1" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Handlers\TenatsInvites\Configurations\" />
+      <Folder Include="Handlers\TenatsInvites\Dto\" />
+      <Folder Include="Handlers\TenatsInvites\Queries\" />
+    </ItemGroup>
+
+</Project>

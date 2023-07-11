@@ -1,0 +1,7 @@
+@using RazorLight
+@inherits TemplatePage<Fab.Entities.Notifications.Users.ConfirmationCodeNotification>
+@{
+    Layout = "_EmailLayout";
+}
+
+<p>Код подтверждения: <strong>@Model.Code</strong></p>
